@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tìm kiếm Học viên</title>
+  <link rel="stylesheet" href="dangdinhdat.css">
+</head>
+<body>
+  <div class="container">
+    <header class="card brand">
+      <div class="brand-left">
+        <!-- simple avatar SVG with initials -->
+        <div class="avatar" aria-hidden="true">
+          <svg width="56" height="56" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop stop-color="#7c3aed" offset="0%" />
+                <stop stop-color="#06b6d4" offset="100%" />
+              </linearGradient>
+            </defs>
+            <circle cx="50" cy="50" r="48" fill="url(#g1)" />
+            <text x="50" y="58" font-size="40" fill="#fff" font-family="Inter, sans-serif" font-weight="700" text-anchor="middle">DD</text>
+          </svg>
+        </div>
+        <div>
+          <h1>Tìm kiếm Học viên</h1>
+          <p class="subtitle">Nhập tên hoặc một phần tên để tìm kiếm (ví dụ: "Văn").</p>
+        </div>
+      </div>
+
+      <div class="brand-right">
+        <div class="author">Thiết kế bởi <span class="author-name">Dang Dinh Dat</span></div>
+        <div class="signature"> <span class="sig-text">Dang Đ. Đạt</span> </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="card">
+        <div class="search-box">
+          <input id="q" type="search" placeholder="Nhập tên học viên..." aria-label="Tìm kiếm" />
+          <button id="btnSearch">Tìm</button>
+        </div>
+
+        <div id="status" class="status"></div>
+
+        <section id="results" class="results">
+          <!-- results will be rendered here -->
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <small>Giao diện tìm kiếm — kết nối tới <code>http://localhost:1880/timkiem?q=...</code></small>
+    </footer>
+
+    <!-- watermark with author's name -->
+    <div class="watermark" aria-hidden="true">Dang Dinh Dat</div>
+  </div>
+
+  <script src="dangdinhdat.js"></script>
+</body>
+</html>
