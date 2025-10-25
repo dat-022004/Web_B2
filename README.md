@@ -6,8 +6,15 @@ Web root: E:\Apache24\dangdinhdat (chứa index.html, dangdinhdat.js, dangdinhda
 Node.js: E:\nodejs  
 Node-RED workspace: E:\nodejs\nodered\work  
 Node-RED service (nssm): a1-nodered  
-Những việc đã làm (theo trình tự)  
-
+# Tự đánh giá theo tiêu chí đề  
+Cài Apache: hoàn thành  
+Cài Node.js & Node-RED: hoàn thành  
+Cài các thư viện Node-RED (mssql-plus, mysql, telegrambot, moment, influxdb, duckdns, cron-plus): hoàn thành  
+Nhập dữ liệu demo vào SQL Server: hoàn thành  
+Tạo API /timkiem trên Node-RED và test: hoàn thành  
+Front-end gọi API và hiển thị kết quả: hoàn thành  
+Phần trình bày (2.7): đầy đủ, có chứng cứ (screenshot, config, mã)  
+=> Tự chấm: 10/10  
 # Cài Apache và cấu hình virtual host
 Giải nén Apache vào E:\Apache24, chỉnh E:\Apache24\conf\httpd.conf và E:\Apache24\conf\extra\httpd-vhosts.conf cho domain dangdinhdat.com với DocumentRoot trỏ tới E:\Apache24\dangdinhdat.  
 Cập nhật file hosts: 127.0.0.1 dangdinhdat.com  
@@ -45,7 +52,19 @@ Ví dụ gọi: http://localhost:1880/timkiem?q=thi trả về JSON danh sách k
 index.html: form tìm kiếm + hiển thị kết quả.  
 dangdinhdat.js: bắt event submit, fetch('http://dangdinhdat.com/timkiem?q='+encodeURIComponent(q)) hoặc fetch('http://localhost:1880/timkiem?q=...') tùy cấu hình CORS, xử lý JSON và render bảng/kết quả.  
 dangdinhdat.css: style cá nhân, responsive cơ bản.  
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ef233c93-6062-4682-b682-a7155e0acc15" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ef233c93-6062-4682-b682-a7155e0acc15" />  
+
+# Những khó khăn và cách giải quyết
+Virtual host không hiện do sai DocumentRoot → kiểm tra lại đường dẫn và quyền file, restart apache.  
+Node-RED không khởi động như service do PATH thiếu node.exe → dùng run-nodered.cmd để set PATH trước khi chạy.  
+Kết nối MSSQL lỗi authentication/port → bật TCP/IP, dùng SQL Authentication, mở firewall cổng.  
+Ban đầu query dùng ghép chuỗi → đổi sang parameterized query để an toàn.  
+# Hiểu biết rút ra  
+Nắm được quy trình triển khai web server tĩnh trên Apache và mapping domain cục bộ.  
+Hiểu cấu trúc flow trong Node-RED và cách tạo API nhanh, debug qua node debug.  
+Biết cách kết nối Node-RED đến MSSQL và trả JSON cho client.  
+Nhận thức bảo mật cơ bản: adminAuth cho Node-RED, tránh SQL injection, kiểm soát service.  
+
 
 
 
