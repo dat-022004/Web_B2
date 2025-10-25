@@ -25,27 +25,26 @@ Kết quả: Node-RED chạy như service, truy cập admin tại http://localho
 # Cấu hình bảo mật Node-RED  
 Sửa E:\nodejs\nodered\work\settings.js, bật adminAuth, thay password bằng chuỗi mã hóa.  
 Restart service để áp dụng; kiểm tra login admin thành công.  
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/175fdde1-e80b-4014-8ad0-488463898eaf" />   
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/19295c54-6213-4294-a2d6-eccba3225c7e" />   
 
 # Cơ sở dữ liệu MSSQL  
 Tạo database (db: [db_name]) và bảng mẫu (table: [table_name]) với các cột id, name, email, note; nhập ~xx bản ghi test để thử search.  
 Ghi lại thông số kết nối: ip, port, username, password, db_name, table_name.  
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/19295c54-6213-4294-a2d6-eccba3225c7e" />   
+<img width="983" height="643" alt="image" src="https://github.com/user-attachments/assets/aba40abb-3105-4801-8f77-fb65764b8b75" />
+
 
 # Tạo API bằng Node-RED  
 Flow chính gồm: http in (GET /timkiem) → function (tiền xử lý, lấy q từ query) → mssql node (parameterized query) → http response (status 200, Content-Type: application/json).  
 Ví dụ gọi: http://localhost:1880/timkiem?q=thi trả về JSON danh sách kết quả.  
 Đảm bảo dùng parameterized query trong node mssql để tránh SQL injection.  
-<img width="983" height="643" alt="image" src="https://github.com/user-attachments/assets/aba40abb-3105-4801-8f77-fb65764b8b75" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/29e2a19c-0feb-4876-afb7-3c3e87ef3ff8" />  
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b8b83a2d-cbbd-42e9-b916-c8525aedbdde" />  
 
 # Front-end  
 index.html: form tìm kiếm + hiển thị kết quả.  
 dangdinhdat.js: bắt event submit, fetch('http://dangdinhdat.com/timkiem?q='+encodeURIComponent(q)) hoặc fetch('http://localhost:1880/timkiem?q=...') tùy cấu hình CORS, xử lý JSON và render bảng/kết quả.  
 dangdinhdat.css: style cá nhân, responsive cơ bản.  
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/29e2a19c-0feb-4876-afb7-3c3e87ef3ff8" />  
-
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b8b83a2d-cbbd-42e9-b916-c8525aedbdde" />  
-
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ef233c93-6062-4682-b682-a7155e0acc15" />
 
 
